@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!-- _____ _ _ _____ _______ / ____| | | | | |_ _|__ __| | | _ _ ___ _ __ __ _| |__ ___ | | __ | | | | | | | | | |/ _ \| '_ \ / _` | '_ \ / _ \| |/ / | | | | | |___| |_| | (_) | | | | (_| | |_) | (_) | < _| |_ | | \_____\__,_|\___/|_| |_|\__, |_.__/ \___/|_|\_\_____| |_| __/ | |___/ (c) 2024 -->
 <html dir='ltr' lang='vi'>
@@ -7,9 +6,9 @@
 <head>
     <!-- Name : Median UI Version : 1.5 Type : Premium Website : www.jagodesain.com ============================================================================ NOTE : Cuongbok ============================================================================ -->
     <!--[ Meta for browser ]-->
-    
-   
-  
+
+
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <!--fontawesome-->
     <!--script> //check accesstimes if(!getCookie(&#39;accessTimes&#39;)){ setCookie(&#39;accessTimes&#39;, 1, 0.002) }else{ setCookie(&#39;accessTimes&#39;, parseInt(getCookie(&#39;accessTimes&#39;)) + 1, 0.002) } if(parseInt(getCookie(&#39;accessTimes&#39;)) &gt;= 10){ if(window.location.pathname != &#39;/p/verify-access-times.html&#39;){ alert(&#39;Phát hiện truy cập bất thường. Vui lòng xác minh bạn không phải robot!&#39;) window.location.href = `/p/verify-access-times.html?next=${encodeURIComponent(window.location.href)}`; } } </script-->
@@ -7793,7 +7792,7 @@
                                                         }
 
                                                         .button__message::after {
-                                                            content: "Không nè";
+                                                            content: "";
                                                         }
 
                                                         .button__message:hover:after {
@@ -7847,8 +7846,8 @@
                                                                     </div>
                                                                     <div class="col col-lg-6 mt-10">
                                                                         <div class="button button__message btnNo"
-                                                                            onclick="showMess()">
-                                                                            <span></span>
+                                                                            onclick="toggleMessage()">
+                                                                            <span>Không đâu</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -7869,7 +7868,8 @@
                                                                 <div class="card__title--name">
                                                                     <h1 style="margin:auto;">Hihi</h1>
                                                                     <h1>
-                                                                        <img src="https://scontent.fhan5-6.fna.fbcdn.net/v/t39.30808-6/409984585_1632944390572835_1276328054898827670_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeG8PhwcoMGA07VxrHan4idzjc1Ux1eGvZSNzVTHV4a9lDTHV7pvFaPnqhLVsZGSthXbpqCc1CYLgecdZyhjqMwv&_nc_ohc=uh59FjaqbqoAX9Spcp7&_nc_ht=scontent.fhan5-6.fna&oh=00_AfB1Y4V3NJA9mt3H700muW_4_xsBFuSCCLjjKt6h5O7vHw&oe=65D2EC67" alt="">
+                                                                        <img src="https://scontent.fhan5-6.fna.fbcdn.net/v/t39.30808-6/409984585_1632944390572835_1276328054898827670_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeG8PhwcoMGA07VxrHan4idzjc1Ux1eGvZSNzVTHV4a9lDTHV7pvFaPnqhLVsZGSthXbpqCc1CYLgecdZyhjqMwv&_nc_ohc=uh59FjaqbqoAX9Spcp7&_nc_ht=scontent.fhan5-6.fna&oh=00_AfB1Y4V3NJA9mt3H700muW_4_xsBFuSCCLjjKt6h5O7vHw&oe=65D2EC67"
+                                                                            alt="">
                                                                     </h1>
                                                                 </div>
                                                                 <div style="height: 30px;"></div>
@@ -7902,14 +7902,34 @@
                                                         var toTinhUrl = getUrlParameter('url');
 
                                                         function showMess() {
+                                                            setTimeout(5000);
                                                             document.getElementById("card1").style.display = 'none';
                                                             document.getElementById("card2").style.display = "inline";
-                                                            if (toTinhUrl.length >= 6 && toTinhUrl.match(/\/\//g)) {
-                                                                setTimeout(function () {
-                                                                    window.location.href = toTinhUrl
-                                                                }, 2000);
-                                                            }
+                                                            setTimeout(function () {
+                                                                if (toTinhUrl.length >= 6 && toTinhUrl.match(/\/\//g)) {
+                                                                    window.location.href = toTinhUrl;
+                                                                }
+                                                            }, 50000);
                                                         }
+                                                        let isMessageShown = false;
+
+                                                        
+
+                                                        function toggleMessage() {
+                                                            const span = document.querySelector('.button__message span');
+                                                            if (isMessageShown) {
+                                                                if (toTinhUrl.length >= 6 && toTinhUrl.match(/\/\//g)) {
+                                                                    window.location.href = toTinhUrl;
+                                                                }
+                                                            }
+                                                           
+                                                                span.innerText = 'Chơi 10 ván luôn';
+                                                                document.styleSheets[0].insertRule('.button__message::after { content: none; }', 0);
+                                                                isMessageShown = true;
+                                                                console.log(isMessageShown);
+                                                            
+                                                        }
+
                                                     </script>
                                                 </div>
                                             </div>
